@@ -3,4 +3,4 @@
 <p><%= @task.content %></p>
 <%=link_to "一覧に戻る", tasks_path %>
 <%=link_to "編集ページ",edit_task_path(@task) %>
-<%= link_to 'このメッセージを削除する', @task, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
+<%= link_to 'このタスクを削除する', @task, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
