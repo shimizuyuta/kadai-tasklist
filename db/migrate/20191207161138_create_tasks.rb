@@ -4,6 +4,7 @@ class CreateTasks < ActiveRecord::Migration[5.2]
       t.string :content
 
       t.timestamps
+      t.references :user, foreigen_key:true
     end
   end
 end

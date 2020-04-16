@@ -1,10 +1,80 @@
-<h1>タスク一覧</h1>
-<ul>
-    <% @tasks.each do |task| %>
-    <li>
-       <%=link_to task.id, task %> :<%= task.content %> &gt; <%= task.content %>
-    </li>
-    <% end %>
-</ul>
-    <%= link_to "新規タスク投稿", new_task_path %>
 
+<% if logged_in? %>
+
+  <div class="row">
+    <!--<div class='col-sm-8'>-->
+                        <p><%= link_to 'タスクを投稿',tasks_new_path %></p>  
+
+    <!--</div>-->
+    
+    <aside class="col-sm-4">
+      
+<!--<%= form_with(model: @task, local: true) do |f| %>-->
+
+<!--        <div class="form-group">-->
+          
+<!--<%= f.text_area :content, class: 'form-control', rows: 5 %>-->
+
+<!--        </div>-->
+        
+<!--<%= f.submit 'Post', class: 'btn btn-primary btn-block' %>-->
+
+      
+<!--<% end %>-->
+
+    </aside>
+    <div class="col-sm-8">
+      <h1>メッセージ一覧</h1>
+
+<%= render 'tasks/tasks', tasks: @tasks %>
+
+    </div>
+
+  </div>
+  
+<!--   <table class="table table-striped">-->
+<!--    <thead>-->
+<!--      <tr>-->
+<!--        <th>id</th>-->
+<!--        <th>タイトル</th>-->
+<!--        <th>タスク</th>-->
+<!--      </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+      
+<!--<% @tasks.each do |task| %>-->
+
+<!--        <tr>-->
+<!--          <td>-->
+<!--<%= link_to task.id, task %>-->
+<!--</td>-->
+<!--          <td>-->
+<!--<%= task.content %>-->
+<!--</td>-->
+<!--          <td>-->
+<!--<%= task.status %>-->
+<!--</td>-->
+<!--        </tr>-->
+      
+<!--<% end %>-->
+
+<!--    </tbody>-->
+<!--  </table>-->
+  
+  
+  
+  
+  
+  
+  
+<% else %>
+
+  <div class="center jumbotron">
+    <div class="text-center">
+      <h1>Welcome to the Task</h1>
+      
+<%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
+
+    </div>
+  </div>
+<% end %>
